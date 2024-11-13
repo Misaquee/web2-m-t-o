@@ -13,3 +13,7 @@ Idée:
 - une planete terre est au centre de l'écran 
 - on peut drague un bonhomme et le laissé tomber
 
+sites:
+model viewer
+tutoriel three.js
+https://fr.javascript.info/mouse-drag-and-drop
