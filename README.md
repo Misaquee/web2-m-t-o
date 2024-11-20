@@ -4,7 +4,7 @@ projet final du cours de web-2 !!!
 wow en fait ça marche
 
 les trois villes : 
-Paris, Moscow et New York
+Paris, tokyo et New York
 
 
 
@@ -14,6 +14,7 @@ Idée:
 - ils sont séparés
 - une planete terre est au centre de l'écran 
 - on peut drague un bonhomme et le laissé tomber
+- le bonhomme sera Mario
   
   
 sites:

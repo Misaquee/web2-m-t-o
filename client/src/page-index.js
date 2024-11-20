@@ -1,4 +1,8 @@
+let body = document.querySelector("body")
+
 window.addEventListener("load", () => {
+    
+
     document.querySelector("#password-form").onsubmit = () => {
         let success = true;
 
@@ -9,4 +13,6 @@ window.addEventListener("load", () => {
 
         return success;
     }
+
+
 })
