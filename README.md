@@ -17,12 +17,13 @@ Idée:
   
   
 sites:
-- model viewer
+- (https://modelviewer.dev)
 - tutoriel three.js
 - https://fr.javascript.info/mouse-drag-and-drop
 
 
 Si j'ai le temps :
+
 Ville secrète: 
 - bikini Bottom 
 
