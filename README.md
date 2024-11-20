@@ -15,12 +15,14 @@ Idée:
 - une planete terre est au centre de l'écran 
 - on peut drague un bonhomme et le laissé tomber
 - le bonhomme sera Mario
-  
+
   
 sites:
 - (https://modelviewer.dev)
 - tutoriel three.js
 - https://fr.javascript.info/mouse-drag-and-drop
+- convert mp3
+- sprite sheet creator
 
 
 Si j'ai le temps :
@@ -33,3 +35,8 @@ easter egg:
 - des rats dans la ville de New York
 - l'hymne nationalle Russe
 - une baguette 
+
+
+- ovni
+- pere noel
+  
