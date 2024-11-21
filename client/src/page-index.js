@@ -1,8 +1,10 @@
+import Color from "./Sprite/Color" 
+
 let spriteList = []
 window.addEventListener("load", () => {
     setInterval(() => {
-        spriteList.push(new Index( Math.floor(Math.random() * 2)))
-    }, 2000)
+        spriteList.push(new Color( Math.floor(Math.random() * 5)))
+    }, 1500)
     
    
     document.querySelector("#password-form").onsubmit = () => {

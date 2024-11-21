@@ -9,7 +9,7 @@ body{
     justify-content: center;
     align-items: center;
     height: 1200px;
-    background-image: url('../img/thirdUnivers.png');
+    background-image: url('../img/Univers.png');
     background-repeat:no-repeat;
     background-size: cover;
 }
@@ -18,7 +18,7 @@ input{
     height: 25px;
     width: 250px;
     border-radius: 10px;
-    box-shadow: blue 0 0 175px 10px;
+    
 }
 
 .none{
