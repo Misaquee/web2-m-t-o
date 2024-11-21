@@ -1,4 +1,4 @@
-import Color from "./Sprite/Color" 
+import Color from "./Sprite/Color.js"
 
 let spriteList = []
 window.addEventListener("load", () => {

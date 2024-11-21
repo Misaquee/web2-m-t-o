@@ -23,11 +23,11 @@ export default class Color{
 
         }
         if(id == 3){
-            this.border.style.boxShadow = = "0px 0px 100px 10px green";
+            this.border.style.boxShadow =  "0px 0px 100px 10px green";
 
         }
         if(id == 4){
-            this.border.style.boxShadow = = "0px 0px 100px 10px yellow";
+            this.border.style.boxShadow =  "0px 0px 100px 10px yellow";
         }
 
 
