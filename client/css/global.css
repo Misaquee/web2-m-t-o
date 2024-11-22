@@ -1,16 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Bokor&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+
 * {
     margin:0;
     padding:0;
+    font-family: 'Bokor', system-ui;
+    font-weight: 100px;
+    font-size: medium;
 }
 
+
+
+
 body{
-    
-    font-family: "KarmaSuture-Regular";
     background-image: url('../img/Univers.png');
     background-repeat:no-repeat;
     background-size: cover;
 }
-
+/**/
 div{
     display: flex;
     justify-content: center;

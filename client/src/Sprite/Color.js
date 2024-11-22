@@ -1,15 +1,8 @@
 export default class Color{
     constructor(id){
         this.border = document.querySelector("input")
-        this.pere = document.createElement("div")
-        this.pere.classList.add("event" + id)
-        this.pos = Math.floor(Math.random () * 2) 
         this.opacity = 70
-        this.valide1 = false
-        this.valide2 = false
-        this.valide3 = false
-        this.valide4 = false
-
+       
         if(this.pos == 1){
         }
 

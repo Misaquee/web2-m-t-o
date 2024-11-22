@@ -1,10 +1,16 @@
-import Color from "./Sprite/Color.js"
+import Color from "./Sprite/Color.js";
+
+import  TiledImage  from "../src/TiledImage.js";
 
 let spriteList = []
 window.addEventListener("load", () => {
     setInterval(() => {
         spriteList.push(new Color( Math.floor(Math.random() * 4)))
     }, 1500)
+
+    setInterval(() => {
+        spriteList.push(new Event( Math.floor(Math.random() * 3)))
+    }, 3000)
     
    
     document.querySelector("#password-form").onsubmit = () => {
