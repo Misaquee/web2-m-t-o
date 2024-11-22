@@ -4,21 +4,30 @@
 }
 
 body{
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 1200px;
+    
+    font-family: "KarmaSuture-Regular";
     background-image: url('../img/Univers.png');
     background-repeat:no-repeat;
     background-size: cover;
+}
+
+div{
+    display: flex;
+    justify-content: center;
+    color: white;
+}
+
+.message{
+    height: 1200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 input{
     height: 25px;
     width: 250px;
     border-radius: 10px;
-    
 }
 
 .none{
@@ -49,4 +58,6 @@ input{
     height: 50px;
     background-image: url('../client/img/earth.png');
 }
+
+
 

@@ -3,7 +3,7 @@ import Color from "./Sprite/Color.js"
 let spriteList = []
 window.addEventListener("load", () => {
     setInterval(() => {
-        spriteList.push(new Color( Math.floor(Math.random() * 5)))
+        spriteList.push(new Color( Math.floor(Math.random() * 4)))
     }, 1500)
     
    

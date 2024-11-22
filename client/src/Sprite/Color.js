@@ -4,6 +4,11 @@ export default class Color{
         this.pere = document.createElement("div")
         this.pere.classList.add("event" + id)
         this.pos = Math.floor(Math.random () * 2) 
+        this.opacity = 70
+        this.valide1 = false
+        this.valide2 = false
+        this.valide3 = false
+        this.valide4 = false
 
         if(this.pos == 1){
         }
@@ -15,26 +20,22 @@ export default class Color{
         } )
 
         if(id == 1){
-            this.border.style.boxShadow = "0px 0px 100px 10px blue";
-
+             this.color= "rgba(255, 0, 0, 1)"
         }
         if(id == 2){
-            this.border.style.boxShadow = "0px 0px 100px 10px red";
-
+            this.color =  "rgba(0, 0, 255, 1)"
         }
         if(id == 3){
-            this.border.style.boxShadow =  "0px 0px 100px 10px green";
-
+            this.color = "rgba(0, 255, 0, 1)"
         }
         if(id == 4){
-            this.border.style.boxShadow =  "0px 0px 100px 10px yellow";
+            this.color = "rgba(255, 255, 0, 1)"
         }
-
-
     }
 
     tick(){
-
-
+        this.opacity += 0.4
+        this.border.style.boxShadow =  this.color + " 0px 0px " + this.opacity + "px 5px" ;
+        console.log(this.border.style.boxShadow)
     }
 }
