@@ -1,7 +1,10 @@
 import Color from "./Sprite/Color.js";
+import Event from "./Sprite/Event.js";
 
-import  TiledImage  from "../src/TiledImage.js";
 
+
+export let windowWidth = window.innerWidth;
+export let windowHeight = window.innerHeight;
 let spriteList = []
 window.addEventListener("load", () => {
     setInterval(() => {
@@ -9,7 +12,9 @@ window.addEventListener("load", () => {
     }, 1500)
 
     setInterval(() => {
-        spriteList.push(new Event( Math.floor(Math.random() * 3)))
+        if(Math.random() <= 0.10){
+            spriteList.push(new Event( Math.floor(Math.random() * 2)))
+        }
     }, 3000)
     
    

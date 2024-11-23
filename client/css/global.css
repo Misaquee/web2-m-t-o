@@ -9,14 +9,12 @@
     font-size: medium;
 }
 
-
-
-
 body{
     background-image: url('../img/Univers.png');
     background-repeat:no-repeat;
     background-size: cover;
 }
+
 /**/
 div{
     display: flex;
@@ -52,18 +50,21 @@ input{
     height: 50px;
     width: 50px;
     background-image: url('../client/img/earth.png');
+    position: absolute;
 }
 
 .event1{
     width: 50px;
     height: 50px;
     background-image: url('../client/img/earth.png');
+    position: absolute;
 }
 
 .event2{
     width: 50px;
     height: 50px;
     background-image: url('../client/img/earth.png');
+    position: absolute;
 }
 
 

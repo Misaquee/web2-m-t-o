@@ -2,15 +2,6 @@ export default class Color{
     constructor(id){
         this.border = document.querySelector("input")
         this.opacity = 70
-       
-        if(this.pos == 1){
-        }
-
-        if(this.pos == 2){
-        }
-
-        this.pere.addEventListener("click", ()=>{
-        } )
 
         if(id == 1){
              this.color= "rgba(255, 0, 0, 1)"
