@@ -1,0 +1,19 @@
+
+body{
+    background-image: url('../img/Univers.png');
+    background-repeat:no-repeat;
+    background-size: cover;
+}
+
+.Choix{
+    background-color: white;
+    border: 1px solid;
+    height: 20px;
+    width: 20px;
+}
+
+.terre{
+    height: 50px;
+    width: 50px;
+    position: relative;
+}

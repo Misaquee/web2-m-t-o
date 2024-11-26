@@ -1,4 +1,5 @@
 import { fetchData } from "./meteo-api";
+import $ from 'jquery';
 
 window.addEventListener("load", async () => {
     let weatherData = await fetchData(45.5019, 73.5674);

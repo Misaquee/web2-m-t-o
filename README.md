@@ -23,6 +23,7 @@ sites:
 - https://fr.javascript.info/mouse-drag-and-drop
 - convert mp3
 - sprite sheet creator
+- https://www.cloudzilla.ai/dev-education/how-to-insert-3d-objects-into-a-webpage-using-html-and-css/
 
 
 Si j'ai le temps :
