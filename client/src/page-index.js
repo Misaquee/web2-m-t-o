@@ -5,7 +5,16 @@ import Event from "./Sprite/Event.js";
 export let windowWidth = window.innerWidth;
 export let windowHeight = window.innerHeight;
 let spriteList = []
+
+document.querySelector(".bonjour")
 //destiné au sprite dans le fichier Color.js
+
+
+document.querySelector(".bonjour").addEventListener("click", () =>{
+
+})
+
+
 window.addEventListener("load", () => {
     setInterval(() => {
         spriteList.push(new Color( Math.floor(Math.random() * 4)))
@@ -18,7 +27,9 @@ window.addEventListener("load", () => {
         }
     }, 3000)
 
-//destiné au sprite dans le fichier Event.js
+
+    
+
 
 
     
@@ -43,3 +54,4 @@ const Generaltick = () => {
     spriteList[i].tick(); // tick dans la classe du sprite Ball.js
     window.requestAnimationFrame(Generaltick);
  }
+

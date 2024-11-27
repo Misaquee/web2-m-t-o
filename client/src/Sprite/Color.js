@@ -6,9 +6,6 @@ export default class Color{
         this.opacity = 70
         this.chance = Math.random() 
 
-        this.node.addEventListener("click", () => {
-           console.log("yy")
-        })
 
         // designe la couleur de message et de l'input
          if(id == 1){

@@ -3,21 +3,35 @@ body{
     background-image: url('../img/thirdUnivers.png');
     background-repeat:no-repeat;
     background-size: cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 100vw;
     height: 100vh;
 }
 
-.Choix{
-    background-color: white;
-    border: 1px solid;
-    height: 20px;
-    width: 20px;
+.en-tete{
+    display: flex;
+    justify-content: space-evenly;
 }
 
-.terre{
-    height: 10vh;
-    width: 10vw;
+.choix{
+    background-color: white;
+    border: 1px solid;
+    height: 3vh;
+    width: 3vw;
+    bottom: 25%;
+}
+
+
+model-viewer{
+    display: flex;
+    height: 40vh;
+    width: 40vw;
     position: relative;
+    top: 27%;
+    left: 27%
+}
+
+.quitter{
+    position: relative;
+    top: 50%;
+    left: 85%;
 }
