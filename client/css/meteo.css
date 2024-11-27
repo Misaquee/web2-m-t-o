@@ -1,8 +1,12 @@
 
 body{
-    background-image: url('../img/Univers.png');
+    background-image: url('../img/thirdUnivers.png');
     background-repeat:no-repeat;
     background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
 .Choix{
@@ -13,7 +17,8 @@ body{
 }
 
 .terre{
-    height: 50px;
-    width: 50px;
+    background-color: transparent;
+    height: 10vh;
+    width: 10vw;
     position: relative;
 }
