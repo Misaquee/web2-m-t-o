@@ -37,8 +37,8 @@ model-viewer{
 }
 
 .homme{
-    width: 25px;
-    height: 25px;
-    background-color: blue;
+    width: 100px;
+    height: 100px;
+    background-image: url('../img/runMan.png');
     position: absolute;
 }
