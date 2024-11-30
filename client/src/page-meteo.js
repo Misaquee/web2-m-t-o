@@ -1,8 +1,12 @@
 import { fetchData } from "./meteo-api";
 import Drag from "./Sprite/Drag.js";
+import Choix from "./Sprite/Choix.js";
 import $ from 'jquery';
 import 'jquery-ui/ui/widgets/draggable';
 
+
+export let windowWidth = window.innerWidth;
+export let windowHeight = window.innerHeight;
 let spriteList = [];
 let bonhomme = document.createElement("div")
 window.addEventListener("load", async () => {
@@ -17,7 +21,7 @@ window.addEventListener("load", async () => {
     $(bonhomme).draggable()
 
     spriteList.push(new Drag())
-
+    spriteList.push(new Choix())
 
     Generaltick()
 

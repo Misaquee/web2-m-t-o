@@ -5,6 +5,7 @@ body{
     background-size: cover;
     width: 100vw;
     height: 100vh;
+
 }
 
 .en-tete{
@@ -12,14 +13,38 @@ body{
     justify-content: space-evenly;
 }
 
-.choix{
+.choix1{
+    position: relative;
+    display: flex;
+    justify-content: center;
     background-color: white;
     border: 1px solid;
-    height: 3vh;
-    width: 3vw;
+    height: 5vh;
+    width: 5vw;
     bottom: 25%;
 }
 
+.choix2{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    background-color: blue;
+    border: 1px solid;
+    height: 5vh;
+    width: 5vw;
+    bottom: 25%;
+}
+
+.choix3{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    background-color: yellow;
+    border: 1px solid;
+    height: 5vh;
+    width: 5vw;
+    bottom: 25%;
+}
 
 model-viewer{
     display: flex;
