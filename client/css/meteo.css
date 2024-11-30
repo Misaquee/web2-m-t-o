@@ -23,8 +23,8 @@ body{
 
 model-viewer{
     display: flex;
-    height: 40vh;
-    width: 40vw;
+    height: 5vh;
+    width: 5vw;
     position: relative;
     top: 27%;
     left: 27%
@@ -34,4 +34,11 @@ model-viewer{
     position: relative;
     top: 50%;
     left: 85%;
+}
+
+.homme{
+    width: 25px;
+    height: 25px;
+    background-color: blue;
+    position: absolute;
 }
