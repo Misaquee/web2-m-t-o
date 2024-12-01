@@ -6,177 +6,202 @@ export default class Choix{
         this.Node1 = document.querySelector(".choix1")
         this.Node2 = document.querySelector(".choix2")
         this.Node3 = document.querySelector(".choix3")
-        this.velocity1 = 0.7
-        this.velocity2 = 0.7
-        this.velocity3 = 0.7
 
-        this.speedX1 = 0
-        this.speedY1 = 0
-        this.speedX2 = 0
-        this.speedY2 = 0
-        this.speedX3 = 0
-        this.speedY3 = 0
+        this.velocity1 = 1
+        this.velocity2 = 1
+        this.velocity3 = 1
+
+        this.rand1 = 5;
+        this.rand2 = 5;
+        this.rand3 = 5;
 
 
-        this.Node1.addEventListener("mouseover",()=>{
-            console.log("yo")
-        })
+        this.style1 = getComputedStyle(this.Node1)
+        this.x1 = parseInt(this.style1.left)
+        this.y1 = parseInt(this.style1.top)
 
+        this.style2 = getComputedStyle(this.Node2)
+        this.x2 = parseInt(this.style2.left)
+        this.y2 = parseInt(this.style2.top)
+
+        this.style3 = getComputedStyle(this.Node3)
+        this.x3 = parseInt(this.style3.left)
+        this.y3 = parseInt(this.style3.top)
+        
     }
 
-    tick(){
-        this.speedX1 += this.velocity1
-        this.speedY1 += this.velocity1
-        
+    tick(){ 
+        if(this.rand1 == 5){
+            this.x1 += this.velocity1 
+            this.y1 -= this.velocity1
+        }
+
+        if(this.rand2 == 5){
+            this.x2 += this.velocity2
+            this.y2 += this.velocity2
+        }
+
+        if(this.rand3 == 5){
+            this.y3 += this.velocity3
+        }
+
+        //Node1
+        // ----------------------------------------------------------------------------
        
-        if(this.Node1.style.left > windowWidth){
-            this.ran = math.floor(math.random() * 2)
+        if(parseInt(this.Node1.style.left) > windowWidth - this.Node1.offsetWidth - 1 ){// si le node atteint la limite de l'écran a l'est
+            this.rand1 = Math.floor(Math.random() * 2)
             this.velocity1 *= -1
-            if(this.ran == 1){
-                this.speedY1 += this.velocity1
-            }
-            else{
-                this.speedY1 -= this.velocity1
-            }
+            this.x1 = windowWidth - this.Node1.offsetWidth - 1
         }
 
-        if(this.Node1.style.left < 0){
-            this.ran = math.floor(math.random() * 2)
+        if(parseInt(this.Node1.style.left) < 0){ // si le node atteint la limite de l'écran a l'ouest
+            this.rand1 = Math.floor(Math.random() * 2)
             this.velocity1 *= -1
-            if(this.ran == 1){
-                this.speedY1 += this.velocity1
-            }
-            else{
-                this.speedY1 -= this.velocity1
-            }
+            this.x1 = 0
+        }
+     
+        if(parseInt(this.Node1.style.top)  > windowHeight - this.Node1.offsetHeight - 1 ){ // si le node atteint la limite de l'écran au sud
+            this.rand1 = Math.floor(Math.random() * 2 + 2)
+            this.y1 = windowHeight - this.Node1.offsetHeight - 1 ;
+            this.velocity1 *= -1
         }
 
-        if(this.Node1.style.top < 0){
-            this.ran = math.floor(math.random() * 2)
+        if( parseInt(this.Node1.style.top) < 0){ // si le node atteint la limite de l'écran au nord
+            this.rand1 = Math.floor(Math.random() * 2 + 2)
+            this.y1 = 0;
             this.velocity1 *= -1
-            if(this.ran == 1){
-                this.speedX1 += this.velocity1
-            }
-            else{
-                this.speedX1 -= this.velocity1
-            }
         }
 
-        if(this.Node1.style.top > windowHeight){
-            this.ran = math.floor(math.random() * 2)
-            this.velocity1 *= -1
-            if(this.ran == 1){
-                this.speedX1 += this.velocity1
-            }
-            else{
-                this.speedX1 -= this.velocity1
-            }
-          
+
+        //Node2
+        // ---------------------------------------------------------------------------
+        if(parseInt(this.Node2.style.left) > windowWidth - this.Node2.offsetWidth - 1 ){// si le node atteint la limite de l'écran a l'est
+            this.rand2 = Math.floor(Math.random() * 2)
+            this.velocity2 *= -1
+            this.x2 = windowWidth - this.Node2.offsetWidth - 1
         }
+
+        if(parseInt(this.Node2.style.left) < 0){ // si le node atteint la limite de l'écran a l'ouest
+            this.rand2 = Math.floor(Math.random() * 2)
+            this.velocity2 *= -1
+            this.x2 = 0
+        }
+     
+        if(parseInt(this.Node2.style.top)  > windowHeight - this.Node2.offsetHeight - 1 ){ // si le node atteint la limite de l'écran au sud
+            this.rand2 = Math.floor(Math.random() * 2 + 2)
+            this.y2 = windowHeight - this.Node2.offsetHeight - 1 ;
+            this.velocity2 *= -1
+        }
+
+        if( parseInt(this.Node2.style.top) < 0){ // si le node atteint la limite de l'écran au nord
+            this.rand2 = Math.floor(Math.random() * 2 + 2)
+            this.y2 = 0;
+            this.velocity2 *= -1
+        }
+
+
+        // Node3
+        // -----------------------------------
+        if(parseInt(this.Node3.style.left) > windowWidth - this.Node3.offsetWidth - 1 ){// si le node atteint la limite de l'écran a l'est
+            this.rand3 = Math.floor(Math.random() * 2)
+            this.velocity3 *= -1
+            this.x3 = windowWidth - this.Node3.offsetWidth - 1
+        }
+
+        if(parseInt(this.Node3.style.left) < 0){ // si le node atteint la limite de l'écran a l'ouest
+            this.rand3 = Math.floor(Math.random() * 2)
+            this.velocity3 *= -1
+            this.x3 = 0
+        }
+     
+        if(parseInt(this.Node3.style.top)  > windowHeight - this.Node3.offsetHeight - 1 ){ // si le node atteint la limite de l'écran au sud
+            this.rand3 = Math.floor(Math.random() * 2 + 2)
+            this.y3 = windowHeight - this.Node3.offsetHeight - 1 ;
+            this.velocity3 *= -1
+        }
+
+        if( parseInt(this.Node3.style.top) < 0){ // si le node atteint la limite de l'écran au nord
+            this.rand3 = Math.floor(Math.random() * 2 + 2)
+            this.y3 = 0;
+            this.velocity3 *= -1
+        }
+
+        // pour qu'ils rebondissent dans une direction aléatoire
+        // ------------------------------------------------------
+        if(this.rand1 == 0){
+            this.x1 += this.velocity1 
+            this.y1 += this.velocity1
+        }
+
+        if(this.rand1 == 1){
+            this.x1 += this.velocity1 
+            this.y1 -= this.velocity1
+        }
+
+        if(this.rand1 == 2){
+            this.x1 += this.velocity1 
+            this.y1 += this.velocity1
+        }
+
+        if(this.rand1 == 3){
+            this.x1 -= this.velocity1 
+            this.y1 += this.velocity1
+        }
+
+        // -----2-------
+
+        if(this.rand2 == 0){
+            this.x2 += this.velocity2 
+            this.y2 += this.velocity2
+        }
+
+        if(this.rand2 == 1){
+            this.x2 += this.velocity2
+            this.y2 -= this.velocity2
+        }
+
+        if(this.rand2 == 2){
+            this.x2 += this.velocity2
+            this.y2 += this.velocity2
+        }
+
+        if(this.rand2 == 3){
+            this.x2 -= this.velocity2
+            this.y2 += this.velocity2
+        }
+
+
+        // -----3-------
+
+        if(this.rand3 == 0){
+            this.x3 += this.velocity3 
+            this.y3 += this.velocity3
+        }
+
+        if(this.rand3 == 1){
+            this.x3 += this.velocity3
+            this.y3 -= this.velocity3
+        }
+
+        if(this.rand3 == 2){
+            this.x3 += this.velocity3
+            this.y3 += this.velocity3
+        }
+
+        if(this.rand3 == 3){
+            this.x3 -= this.velocity3
+            this.y3 += this.velocity3
+        }
+
+
+        this.Node1.style.left = this.x1 + "px";
+        this.Node1.style.top = this.y1 + "px";
+
+        this.Node2.style.left = this.x2 + "px";
+        this.Node2.style.top = this.y2 + "px";
+
+        this.Node3.style.left = this.x3 + "px";
+        this.Node3.style.top = this.y3 + "px";
         
-        this.Node1.style.left = this.speedX1 + "px";
-        this.Node1.style.top = this.speedY1 + "px";
-
-
-        
-        this.speedY2 += this.velocity2
-    
-        if(this.Node2.style.left > windowWidth){
-            this.ran = math.floor(math.random() * 2)
-            this.velocity2 *= -1
-            if(this.ran == 1){
-                this.speedY2 += this.velocity2
-            }
-            else{
-                this.speedY2 -= this.velocity2
-            }
-        }
-
-        if(this.Node2.style.left < 0){
-            this.ran = math.floor(math.random() * 2)
-            this.velocity2 *= -1
-            if(this.ran == 1){
-                this.speedY2 += this.velocity2
-            }
-            else{
-                this.speedY2 -= this.velocity2
-            }
-        }
-
-        if(this.Node2.style.top < 0){
-            this.ran = math.floor(math.random() * 2)
-            this.velocity2 *= -1
-            if(this.ran == 1){
-                this.speedX2 += this.velocity2
-            }
-            else{
-                this.speedX2 -= this.velocity2
-            }
-        }
-
-        if(this.Node2.style.top > windowHeight){
-            this.ran = math.floor(math.random() * 2)
-            this.velocity2 *= -1
-            if(this.ran == 1){
-                this.speedX2 += this.velocity2
-            }
-            else{
-                this.speedX2 -= this.velocity2
-            }
-        }
-
-        this.Node2.style.left = this.speedX2 + "px";
-        this.Node2.style.top = this.speedY2 + "px";
-
-
-        this.speedX3 -= this.velocity3
-        this.speedY3 += this.velocity3
-        
-        if(this.Node3.style.left > windowWidth){
-            this.ran = math.floor(math.random() * 2)
-            this.velocity3 *= -1
-            if(this.ran == 1){
-                this.speedY3 += this.velocity3
-            }
-            else{
-                this.speedY3 -= this.velocity3
-            }
-        }
-
-        if(this.Node3.style.left < 0){
-            this.ran = math.floor(math.random() * 2)
-            this.velocity3 *= -1
-            if(this.ran == 1){
-                this.speedY3 += this.velocity3
-            }
-            else{
-                this.speedY3 -= this.velocity3
-            }
-        }
-
-        if(this.Node3.style.top < 0){
-            this.ran = math.floor(math.random() * 2)
-            this.velocity3 *= -1
-            if(this.ran == 1){
-                this.speedX3 += this.velocity3
-            }
-            else{
-                this.speedX3 -= this.velocity3
-            }
-        }
-
-        if(this.Node3.style.top > windowHeight){
-            this.ran = math.floor(math.random() * 2)
-            this.velocity3 *= -1
-            if(this.ran == 1){
-                this.speedX3 += this.velocity3
-            }
-            else{
-                this.speedX3 -= this.velocity3
-            }
-        }
-
-        this.Node3.style.left = this.speedX3 + "px";
-        this.Node3.style.top = this.speedY3 + "px";
     }
 }

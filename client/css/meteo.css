@@ -10,47 +10,42 @@ body{
 
 .en-tete{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
 }
 
+
 .choix1{
-    position: relative;
-    display: flex;
-    justify-content: center;
+    position:absolute;
     background-color: white;
     border: 1px solid;
     height: 5vh;
     width: 5vw;
-    bottom: 25%;
+    
+    
 }
 
 .choix2{
-    position: relative;
-    display: flex;
-    justify-content: center;
+    position: absolute;
     background-color: blue;
     border: 1px solid;
     height: 5vh;
     width: 5vw;
-    bottom: 25%;
+    
 }
 
 .choix3{
-    position: relative;
-    display: flex;
-    justify-content: center;
+    position: absolute;
     background-color: yellow;
     border: 1px solid;
     height: 5vh;
     width: 5vw;
-    bottom: 25%;
 }
 
 model-viewer{
     display: flex;
     height: 5vh;
     width: 5vw;
-    position: relative;
+    position: absolute;
     top: 27%;
     left: 27%
 }
@@ -67,3 +62,29 @@ model-viewer{
     background-image: url('../img/runMan.png');
     position: absolute;
 }
+
+/* if(parseInt(this.Node1.style.left) > windowWidth - this.Node1.offsetWidth - 1 ){// si le node atteint la limite de l'écran a l'est
+            this.rand1 = Math.floor(Math.random() * 2)
+            this.velocity1 *= -1
+            this.x1 = windowWidth - this.Node1.offsetWidth - 1
+        }
+
+        if(parseInt(this.Node1.style.left) < 0){ // si le node atteint la limite de l'écran a l'ouest
+            console.log("1") 
+            this.rand1 = Math.floor(Math.random() * 2)
+            this.velocity1 *= -1
+            this.x1 = 0
+        }
+     
+        if(parseInt(this.Node1.style.top)  > windowHeight - this.Node1.offsetHeight - 1 ){ // si le node atteint la limite de l'écran au sud
+            this.rand1 = Math.floor(Math.random() * 2 + 2)
+            this.y1 = windowHeight - this.Node1.offsetHeight - 1 ;
+            this.velocity1 *= -1
+        }
+
+        if( parseInt(this.Node1.style.top) < 0){ // si le node atteint la limite de l'écran au nord
+            this.rand1 = Math.floor(Math.random() * 2 + 2)
+            this.y1 = 0;
+            this.velocity1 *= -1
+        }
+*/
