@@ -16,6 +16,7 @@ body{
 
 .choix1{
     position:absolute;
+    background-image: url();
     background-color: white;
     border: 1px solid;
     height: 5vh;
@@ -43,8 +44,8 @@ body{
 
 model-viewer{
     display: flex;
-    height: 5vh;
-    width: 5vw;
+    height: 50vh;
+    width: 50vw;
     position: absolute;
     top: 27%;
     left: 27%

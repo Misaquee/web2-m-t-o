@@ -1,6 +1,5 @@
 import Color from "./Sprite/Color.js";
 import Event from "./Sprite/Event.js";
-import Text from "./Sprite/Text.js";
 import $ from 'jquery';
 import 'jquery-ui/ui/widgets/draggable';
 
@@ -8,7 +7,7 @@ export let windowWidth = window.innerWidth;
 export let windowHeight = window.innerHeight;
 let indice = 0
 let spriteList = []
-let valide
+let valide 
 // les phrases différentes qui peuvent apparaitre
 let text = [5];
  text [0] = "tu es un sorcier Harry" // Harry poter
@@ -18,69 +17,67 @@ let text = [5];
  text [4] = "C’est à moi que tu parles ? C’est à moi que tu parles ??..." // Taxi Driver
 
 
-window.addEventListener("load", () => {
-    let hi = document.querySelector("#bonjour")
-    let black = document.createElement("div")
-    
+ window.addEventListener("load", () => {
+    let hi = document.querySelector("#bonjour");
+    let contain = document.querySelector(".container");
+    let bd = document.querySelector("body");
 
-    hi.onclick = () => { // permet de changer le texte en haut de l'écran 
-        if(indice < 5){
-            console.log("hi")
-            hi.innerHTML = text[indice]
-            indice++
+    hi.onclick = () => { // Change le texte en haut de l'écran
+        if (indice < 5) {
+            valide = false
+            hi.innerHTML = text[indice];
+            indice++;
+        } else { 
+            indice = 0
+            bd.style.backgroundSize = "0px";
+            bd.style.backgroundColor = "black";
+            contain.style.display = "flex";
+            contain.style.zIndex = 1;
+            console.log(contain.style.zIndex);
+            valide = true; // Change `valide` à true
         }
-        else{ 
-            // fait apparaitre un filtre noir 
-            black.classList.add("black")
-            black.style.opacity = 1
-            document.querySelector("body").append(black)
-            document.querySelector(".container").style.display = "flex"
-            document.querySelector(".container").style.zIndex = 10
+    };
 
-            //destiné au animation dans le fichier Text.js
-           
+    // Ajout d'un écouteur  "keyup"
+    window.addEventListener("keyup", e => {
+        if (valide && e.key == " ") { 
+            document.querySelector(".container").style.display = "none";
+            document.querySelector("body").style.backgroundSize = "cover";
         }
+    });
 
-    }
-    //destiné au animation dans le fichier Color.js
+    // Animation liée au fichier Color.js
     setInterval(() => {
-        spriteList.push(new Color( Math.floor(Math.random() * 4)))
-    }, 1500)
+        spriteList.push(new Color(Math.floor(Math.random() * 4)));
+    }, 1500);
 
-    //destiné au animation dans le fichier Event.js
+    // Animation liée au fichier Event.js
     setInterval(() => {
-        if(Math.random() <= 0.10){
-            spriteList.push(new Event( Math.floor(Math.random() * 2)))
+        if (Math.random() <= 0.10) {
+            spriteList.push(new Event(Math.floor(Math.random() * 2)));
         }
-    }, 3000)
-
+    }, 3000);
 
     document.querySelector("#password-form").onsubmit = () => {
         let success = true;
 
         if (document.querySelector("#password").value !== "web2") {
             success = false;
-            document.querySelector("#error-message").style.display = "block";
+            document.querySelector("#error-message").style.display = "none";
+            alert("mot de passe erroné : Erreur d'authentification")
         }
 
         return success;
-    }
-    Generaltick()
+    };
 
-})
-if(valide){
-    window.addEventListener("keyup", e =>{
-        if(e.key = "Enter"){
-            ducument.querySelector(".container").style.display = "none";
-        }
-            
-    })
-}
+    Generaltick();
+});
 
 const Generaltick = () => {
-    // setTimeout(tick, 30)
-    for(let i = 0; i < spriteList.length; i++)
-    spriteList[i].tick(); // tick dans la classe du sprite Ball.js
+    for (let i = 0; i < spriteList.length; i++) {
+        spriteList[i].tick(); // Appelle la méthode tick() pour chaque sprite
+    }
     window.requestAnimationFrame(Generaltick);
- }
+};
+
 
