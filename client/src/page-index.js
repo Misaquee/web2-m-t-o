@@ -1,5 +1,6 @@
 import Color from "./Sprite/Color.js";
 import Event from "./Sprite/Event.js";
+import Text from "./Sprite/Text.js";
 import $ from 'jquery';
 import 'jquery-ui/ui/widgets/draggable';
 
@@ -7,6 +8,7 @@ export let windowWidth = window.innerWidth;
 export let windowHeight = window.innerHeight;
 let indice = 0
 let spriteList = []
+// les phrases différentes qui peuvent apparaitre
 let text = [5];
  text [0] = "tu es un sorcier Harry" // Harry poter
  text [1] = "La vie c’est comme une boîte de chocolats, on ne sait jamais sur quoi on va tomber" // Forest Gump
@@ -17,27 +19,35 @@ let text = [5];
 
 window.addEventListener("load", () => {
     let hi = document.querySelector("#bonjour")
+    let black = document.createElement("div")
+    
 
-    hi.onclick = () => {
+    hi.onclick = () => { // permet de changer le texte en haut de l'écran 
         if(indice < 5){
             console.log("hi")
             hi.innerHTML = text[indice]
             indice++
         }
+        else{ // fait apparaitre un filtre noir 
+            black.classList.add("black")
+            black.style.opacity = 1
+            document.querySelector("body").append(black)
+            //destiné au animation dans le fichier Text.js
+            spriteList.push(new Text())
+        }
+
     }
-    //destiné au sprite dans le fichier Color.js
+    //destiné au animation dans le fichier Color.js
     setInterval(() => {
         spriteList.push(new Color( Math.floor(Math.random() * 4)))
     }, 1500)
 
-    //destiné au sprite dans le fichier Event.js
+    //destiné au animation dans le fichier Event.js
     setInterval(() => {
         if(Math.random() <= 0.10){
             spriteList.push(new Event( Math.floor(Math.random() * 2)))
         }
     }, 3000)
-
-    
 
 
     document.querySelector("#password-form").onsubmit = () => {
