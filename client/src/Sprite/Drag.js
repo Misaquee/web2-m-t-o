@@ -11,12 +11,12 @@ export default class Drag{
     tick(){
         this.x = this.Node.style.left
         if(this.posActuel > this.x){ // l'objet drag va vers la gauche 
-            this.Node.style.backgroundImage = " url('./img/runMan.png')";
+            this.Node.style.backgroundImage = " url('./img/astro.png')";
             console.log("hey")
         } 
 
         if(this.posActuel < this.x){ // l'objet drag va vers la droite 
-            this.Node.style.backgroundImage = " url('./img/runMan.png')";
+            this.Node.style.backgroundImage = " url('./img/astro-reverse.png')";
             console.log("Hey")
         } 
 
