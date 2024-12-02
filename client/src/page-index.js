@@ -8,6 +8,7 @@ export let windowWidth = window.innerWidth;
 export let windowHeight = window.innerHeight;
 let indice = 0
 let spriteList = []
+let valide
 // les phrases différentes qui peuvent apparaitre
 let text = [5];
  text [0] = "tu es un sorcier Harry" // Harry poter
@@ -28,12 +29,16 @@ window.addEventListener("load", () => {
             hi.innerHTML = text[indice]
             indice++
         }
-        else{ // fait apparaitre un filtre noir 
+        else{ 
+            // fait apparaitre un filtre noir 
             black.classList.add("black")
             black.style.opacity = 1
             document.querySelector("body").append(black)
+            document.querySelector(".container").style.display = "flex"
+            document.querySelector(".container").style.zIndex = 10
+
             //destiné au animation dans le fichier Text.js
-            spriteList.push(new Text())
+           
         }
 
     }
@@ -63,6 +68,14 @@ window.addEventListener("load", () => {
     Generaltick()
 
 })
+if(valide){
+    window.addEventListener("keyup", e =>{
+        if(e.key = "Enter"){
+            ducument.querySelector(".container").style.display = "none";
+        }
+            
+    })
+}
 
 const Generaltick = () => {
     // setTimeout(tick, 30)

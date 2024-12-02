@@ -1,51 +1,14 @@
 /*css destiné au fichier index.html*/
 body{
-    
     background-image: url('../img/Univers.png');
     background-repeat:no-repeat;
     background-size: cover;
     width: 100vw;
     height: 100vh;
     overflow: hidden; 
-   
-}
-
-/* body {
-    margin: 0;
-    background: black;
-    color: yellow;
-    font-family: 'Arial', sans-serif;
-    overflow: hidden;
-} 
-
-.star-wars-container {
     position: relative;
-    perspective: 1000px; 
-    height: 100vh;
-    overflow: hidden;
-}
-
-.scrolling-text {
-    position: absolute;
-    width: 60%; 
-    bottom: -100%; 
-    left: 20%; 
-}
-
-
-
-body {
-    margin: 0;
-    padding: 0;
-    background: black;
-    color: yellow;
-    font-family: "Arial", sans-serif;
-    overflow: hidden; /* Empêche les barres de défilement 
    
 }
-  */
-
-
 
 .bonjour{
     display: flex;
@@ -71,7 +34,6 @@ body {
 }
 
 input{
-   
     height: 25px;
     width: 250px;
     border-radius: 10px;
@@ -79,20 +41,32 @@ input{
 
 
 .container{
-    position: absolute;
-    display: flex;
-    justify-content: center;
+    
+    display: none;
     height: 100vh;
     width: 60vw;
     margin:  0 auto;
+    perspective: 200px;
+    z-index: 0;
 }
 
+
+.text-defil{
+    position: relative;
+    animation: scroll 60s linear forwards
+}
 .text-defil p{
+    font-weight: bold;
     color: yellow;
-    font-size: 2vw;
+    font-size: 5vw;
     line-height: 1.5;
     text-align: justify;
-   
+    
+}
+
+@keyframes scroll {
+    from{top: 1000px; transform: translateZ(0px) rotateX(20deg);}
+    to { top: -7500px; transform: translateZ(-2500px) rotateX(21deg);}
 }
 
 .event1{
