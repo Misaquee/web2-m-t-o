@@ -5,7 +5,6 @@ import TiledImage from "../TiledImage.js"
 export default class Event{
     constructor(id){
         this.parent = document.querySelector("body")
-        this.node = document.createElement("div")
         this.y = Math.floor(Math.random () * windowHeight)
       
         let columnCount = 8
@@ -15,6 +14,7 @@ export default class Event{
 		let scale = 1.0
 
         let node = document.createElement("div")
+        node.style.backgroundColor = "transparent"
 		document.querySelector("body").append(node)
 
         this.tiledImage = new TiledImage(
@@ -32,7 +32,7 @@ export default class Event{
         this.valide = true;
         this.tiledImage.changeRow(0)
         this.tiledImage.changeMinMaxInterval(4, 7); // Frames pour aller à gauche
-        } else if (id == 2) {
+        } else if (id == 0) {
         this.x = 0;
         this.valide = false;
         this.tiledImage.changeRow(0)
