@@ -17,9 +17,9 @@ export default class Alien{
         this.projX = 0
         this.side = false
         this.velocity = 2
-        this.velocityP = 3
+        this.velocityP = 5
         this.y = Math.floor(Math.random () * windowHeight)
-
+        
         if(this.y == 0 || this.y < this.node.offsetTop) // vérifie si l'alien depasse le cadre
             this.y += this.node.offsetTop
         
@@ -32,27 +32,39 @@ export default class Alien{
             this.side = false
         }
         else{
-            console.log(windowWidth, this.node.getBoundingClientRect().left)
             this.node.style.left = windowWidth - 125 + "px"
             this.node.style.top = this.y + "px"
             this.side = true
         }
 
+        //this.node.getBoundingClientRect().left
         this.parent.append(this.node)
+        this.style = getComputedStyle(this.node)
         this.tire()
     }
 
     tire(){
         setTimeout(() => {
+            let posX = 0
+            let posY = 0
+            
             if(this.side){
-                this.proj.style.top -= this.node.offsetHeight / 2 + "px"
-                this.velocityP *= -1
+                posY += this.node.offsetHeight / 2 + parseInt(this.style.top) 
+                posX += parseInt(this.style.left) 
+                console.log(posX)
+                
+                this.proj.style.left = posX + "px"
+                this.proj.style.top = posY + "px"
             }
             else{
-                this.proj.style.top += this.node.offsetWidth + "px"
-                this.proj.style.top -= this.node.offsetHeight / 2 + "px"
+                posX += this.node.offsetWidth 
+                posY += this.node.offsetHeight / 2 + parseInt(this.style.top)
+                this.proj.style.left = posX + "px"
+                this.proj.style.top = posY + "px"
             }
-            this.node.append(this.proj)
+            console.log(this.style.top)
+            console.log(parseInt(this.proj.style.left))
+            this.parent.append(this.proj)
             this.feu = true
         }, 2500)
         
@@ -71,6 +83,7 @@ export default class Alien{
         }
 
         this.proj.style.left = this.projX + "px"
+       
         this.node.style.top = this.y + "px"
 
        

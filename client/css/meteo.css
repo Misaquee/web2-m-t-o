@@ -1,11 +1,12 @@
 
 body{ 
-    overflow: hidden;
+    position: relative;
     background-image: url('../img/thirdUnivers.png');
     background-repeat:no-repeat;
     background-size: cover;
     width: 100vw;
     height: 100vh;
+    
 }
 
 .en-tete{
@@ -94,17 +95,12 @@ model-viewer{
     border-radius: 10px;
 }
 
-.tremblement{
-    width: 100%;
-    height: 100%;
-    position: absolute;
-}
 
 /*animation tirée d'un site*/
 @keyframes shake {
-    0% { transform: translate(1px, 1px) rotate(0deg); }
-    10% { transform: translate(-1px, -2px) rotate(-1deg); }
-    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    0% { width: 100vw;  height: 100vh; transform: translate(1px, 1px) rotate(0deg); }
+    10% {width: 100vw;  height: 100vh; transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { width: 100vw;  height: 100vh;transform: translate(-3px, 0px) rotate(1deg); }
     30% { transform: translate(3px, 2px) rotate(0deg); }
     40% { transform: translate(1px, -1px) rotate(1deg); }
     50% { transform: translate(-1px, 2px) rotate(-1deg); }
@@ -113,5 +109,5 @@ model-viewer{
     80% { transform: translate(-1px, -1px) rotate(1deg); }
     90% { transform: translate(1px, 2px) rotate(0deg); }
     100% { transform: translate(1px, -2px) rotate(-1deg); }
-  }
+}
 

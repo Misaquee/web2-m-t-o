@@ -15,13 +15,16 @@ let actif = true
 let nombre = 0
 let spriteList = [];
 let bonhomme = document.createElement("div")
+
 window.addEventListener("load", async () => {
     let weatherData = await fetchData(45.5019, 73.5674);
     console.log(weatherData)
 
-    let body = document.querySelector("body")
+    let body = document.body
+
     bonhomme.classList.add("homme")
     body.append(bonhomme)
+
     // permet de bouger bonhomme 
     $(bonhomme).draggable({
         containment: "body", // restreindre a une zone 
@@ -45,23 +48,21 @@ window.addEventListener("load", async () => {
         if (e.key == " " && hold) {
             hold = false;
             clearTimeout(timer); 
-            secousse.style.animation = "";
+            body.style.animation = "";
             console.log("Espace relâchée ");
         }
     })
 
 
-    let secousse = document.createElement("div")
-    secousse.classList.add("tremblement")
-    document.querySelector("body").append(secousse)
+    
+    
     window.addEventListener("keydown", e => { // savoir si on appui sur la touche space  
         if (e.key == " " && !hold) { 
             console.log("appuie")
             hold = true;
             timer = setTimeout(() => {
                 console.log("bravo")
-                secousse.style.animation = "shake 10s linear forwards";
-                console.log(secousse.style.animation)
+                body.style.animation = "shake 10s linear 0s 1 normal forwards running";
             }, 3000); // 3 secondes
         }
     });
