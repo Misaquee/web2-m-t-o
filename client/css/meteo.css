@@ -1,5 +1,6 @@
 
-body{
+body{ 
+    overflow: hidden;
     background-image: url('../img/thirdUnivers.png');
     background-repeat:no-repeat;
     background-size: cover;
@@ -76,28 +77,41 @@ model-viewer{
     position: absolute;
 }
 
-/* if(parseInt(this.Node1.style.left) > windowWidth - this.Node1.offsetWidth - 1 ){// si le node atteint la limite de l'écran a l'est
-            this.rand1 = Math.floor(Math.random() * 2)
-            this.velocity1 *= -1
-            this.x1 = windowWidth - this.Node1.offsetWidth - 1
-        }
+.alien{
+    width: 10vw;
+    height: 10vh;
+    background-image: url('../img/alien-ship.png');
+    background-repeat:no-repeat;
+    background-size: contain;
+    position: absolute;
+}
 
-        if(parseInt(this.Node1.style.left) < 0){ // si le node atteint la limite de l'écran a l'ouest
-            console.log("1") 
-            this.rand1 = Math.floor(Math.random() * 2)
-            this.velocity1 *= -1
-            this.x1 = 0
-        }
-     
-        if(parseInt(this.Node1.style.top)  > windowHeight - this.Node1.offsetHeight - 1 ){ // si le node atteint la limite de l'écran au sud
-            this.rand1 = Math.floor(Math.random() * 2 + 2)
-            this.y1 = windowHeight - this.Node1.offsetHeight - 1 ;
-            this.velocity1 *= -1
-        }
+.projectile{
+    width: 1.5vw;
+    height: 0.5vw;
+    background-color: blue;
+    position: absolute;
+    border-radius: 10px;
+}
 
-        if( parseInt(this.Node1.style.top) < 0){ // si le node atteint la limite de l'écran au nord
-            this.rand1 = Math.floor(Math.random() * 2 + 2)
-            this.y1 = 0;
-            this.velocity1 *= -1
-        }
-*/
+.tremblement{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+/*animation tirée d'un site*/
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+  }
+
