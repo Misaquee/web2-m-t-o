@@ -24,7 +24,7 @@ export default class Alien{
         this.track = false
         this.collision = false
 
-
+       
         this.velocity = 5
         this.velocityP = 8
         this.y = Math.floor(Math.random () * windowHeight)
@@ -51,7 +51,7 @@ export default class Alien{
        
         this.tire()
         this.wait()
-        this.verifCollision()
+        
         
         console.log(parseInt(this.proj.style.left))
     }
@@ -90,10 +90,8 @@ export default class Alien{
     }
 
     verifCollision() {
-        const projectile = this.proj.getBoundingClientRect();
-        const homme = this.man.getBoundingClientRect();
-        
-
+        const projectile = this.proj.getBoundingClientRect()
+        const homme = this.man.getBoundingClientRect()
         if (
             projectile.left < homme.right &&
             projectile.right > homme.left &&
@@ -107,7 +105,7 @@ export default class Alien{
 
 
     tick(){
-        
+        this.verifCollision()
         if (this.return) {
             if(this.side)
                 this.velocityP = 13.5
@@ -128,11 +126,12 @@ export default class Alien{
         
         // pour que le projectile suive l'homme
         if(this.track){
-            if( this.posY < parseInt(this.man.style.top))
+            if( this.posY < parseInt(this.man.style.top) + parseInt(this.man.offsetWidth) / 2)
                 this.posY += Math.abs(this.velocityP)
-            if( this.posY > parseInt(this.man.style.top))
+            if( this.posY > parseInt(this.man.style.top) + parseInt(this.man.offsetWidth) / 2)
                 this.posY -= Math.abs(this.velocityP)
         }
+       
 
         this.node.style.top = this.y + "px"
         this.proj.style.left = this.projx + "px"
