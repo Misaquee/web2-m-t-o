@@ -2,7 +2,7 @@ import { fetchData } from "./meteo-api";
 import Drag from "./Sprite/Drag.js";
 import Choix from "./Sprite/Choix.js";
 import Alien from "./Sprite/Alien.js";
-import Boss from "./Sprite/Boss.js";
+import Meteo from "./Sprite/Meteo.js";
 
 import $ from 'jquery';
 import 'jquery-ui/ui/widgets/draggable';
@@ -18,10 +18,16 @@ let spriteList = [];
 let bonhomme = document.createElement("div")
 
 
-
 window.addEventListener("load", async () => {
     let weatherData = await fetchData(45.5019, 73.5674);
     console.log(weatherData)
+
+    let Montreal = await fetchData(45.508888, -73.561668)
+
+    let NewYork = await fetchData(40.730610,  -73.935242)
+    let Paris = await fetchData(48.864716, 2.349014)
+    let Tokyo = await fetchData(35.652832, 139.839478)
+
 
     let body = document.body
 
@@ -72,31 +78,45 @@ window.addEventListener("load", async () => {
     let choix2 = document.querySelector(".choix2")
     let choix3 = document.querySelector(".choix3")
     let etat = false
-    choix1.addEventListener("contextmenu", e =>{
-        etat = !etat
-        console.log(etat)
-        e.preventDefault();
-        if(etat){
-            choix1.style.width =  "8vw"
-            choix1.style.height =  "8vh"
-            choix1.style.backgroundSize = "0px";
-            choix1.style.opacity = "0.5px"
-        }
-        else{
-            choix1.style.width =  "10vw"
-            choix1.style.height =  "10vh"
-            choix1.style.backgroundSize = "cover";
-            choix1.style.opacity = "0px"
-        }
 
-    })
+    
+
+    const Menu = (choix, index, color, ville) => {
+        choix.addEventListener("contextmenu", (e) => {
+            etat = !etat;
+            console.log(etat);
+            e.preventDefault();
+    
+            if (etat) {
+                spriteList.push(new Meteo(index, ville))
+                choix.style.width = "18vw"
+                choix.style.height = "18vh"
+                choix.style.backgroundSize = "0px"
+                choix.style.backgroundColor = color
+            } else {
+                choix.style.width = "7vw"
+                choix.style.height = "7vh"
+                choix.style.backgroundSize = "cover"
+                if(index == 1)
+                    choix.innerHTML = "New York"
+                if(index == 2)
+                    choix.innerHTML = "Tokyo"
+                if(index == 3)
+                    choix.innerHTML = "Paris"
+            }
+        });
+    };
+    
+    // Configuration pour chaque élément
+    Menu(choix1, 1, "rgba(255, 0, 255, 0.5)", NewYork); 
+    Menu(choix2, 2, "rgba(127, 255, 0, 0.5)", Tokyo); 
+    Menu(choix3, 3, "rgba(0, 255, 255, 0.5)", Paris); 
+    // retirer la planète si elle gène trop
     let compteur = 0
     window.addEventListener("contextmenu", e =>{
         compteur++
-        if(compteur > 3){
-            document.querySelector("")
-        }
-
+        if(compteur > 3)
+            document.querySelector("model-viewer").style.display = "none"
     })
 
 
