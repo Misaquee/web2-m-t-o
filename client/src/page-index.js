@@ -1,5 +1,4 @@
 import Color from "./Sprite/Color.js";
-import Event from "./Sprite/Event.js";
 import $ from 'jquery';
 import 'jquery-ui/ui/widgets/draggable';
 
@@ -15,7 +14,6 @@ let text = [5];
  text [2] = "Plata O Plomo " // Narcos
  text [3] = "Luke, je suis ton père…" //Star Wars
  text [4] = "C’est à moi que tu parles ? C’est à moi que tu parles ??..." // Taxi Driver
-
 
  window.addEventListener("load", () => {
     let hi = document.querySelector("#bonjour");
@@ -51,13 +49,6 @@ let text = [5];
         spriteList.push(new Color(Math.floor(Math.random() * 4)));
     }, 1500);
 
-    // Animation liée au fichier Event.js
-    setInterval(() => {
-        if (Math.random() <= 0.99) {
-            spriteList.push(new Event(Math.floor(Math.random() * 2)));
-        }
-    }, 3000);
-
     document.querySelector("#password-form").onsubmit = () => {
         let success = true;
 
@@ -66,7 +57,6 @@ let text = [5];
             document.querySelector("#error-message").style.display = "none";
             alert("mot de passe erroné : Erreur d'authentification")
         }
-
         return success;
     };
 

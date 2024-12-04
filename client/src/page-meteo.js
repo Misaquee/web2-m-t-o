@@ -19,6 +19,8 @@ let bonhomme = document.createElement("div")
 
 
 window.addEventListener("load", async () => {
+    localStorage.clear();  // videz le localStorage
+
     let weatherData = await fetchData(45.5019, 73.5674);
     console.log(weatherData)
 
@@ -60,6 +62,10 @@ window.addEventListener("load", async () => {
             body.style.animation = "";
             console.log("Espace relâchée ");
         }
+
+        if (e.key == "q" || e.key == "Q") {
+
+        }
     })
 
     window.addEventListener("keydown", e => { // savoir si on appui sur la touche space  
@@ -77,22 +83,42 @@ window.addEventListener("load", async () => {
     let choix1 = document.querySelector(".choix1")
     let choix2 = document.querySelector(".choix2")
     let choix3 = document.querySelector(".choix3")
-    let etat = false
+
+    let etat = []
+    etat[0] = false
+    etat[1] = false
+    etat[2] = false 
 
     
 
-    const Menu = (choix, index, color, ville) => {
+    const compteurChoix = (id) => {
+        let nbClick = parseInt(localStorage.getItem(id)) || 0; // recupere le nbClick dans le local storage pour cette element
+        nbClick++;
+        localStorage.setItem(id, nbClick); // Mettre à jour le compteur dans le localStorage
+    };
+
+    const Menu = (choix, index, color, ville,etat ) => {
         choix.addEventListener("contextmenu", (e) => {
             etat = !etat;
             console.log(etat);
             e.preventDefault();
     
             if (etat) {
-                spriteList.push(new Meteo(index, ville))
+                for(let i = 0; i < 25; i++)
+                    spriteList.push(new Meteo(index, ville))
+
+                compteurChoix(choix.classList[0]) // regarde la premiere classe du choix 
+
                 choix.style.width = "18vw"
                 choix.style.height = "18vh"
                 choix.style.backgroundSize = "0px"
                 choix.style.backgroundColor = color
+
+                let temp = document.createElement("div")
+                temp.classList.add("temp")
+                choix.append(temp)
+                temp.innerHTML = ville.temperature + "°C"
+
             } else {
                 choix.style.width = "7vw"
                 choix.style.height = "7vh"
@@ -108,9 +134,9 @@ window.addEventListener("load", async () => {
     };
     
     // Configuration pour chaque élément
-    Menu(choix1, 1, "rgba(255, 0, 255, 0.5)", NewYork); 
-    Menu(choix2, 2, "rgba(127, 255, 0, 0.5)", Tokyo); 
-    Menu(choix3, 3, "rgba(0, 255, 255, 0.5)", Paris); 
+    Menu(choix1, 1, "rgba(255, 0, 255, 0.5)", NewYork,etat[0] ); 
+    Menu(choix2, 2, "rgba(127, 255, 0, 0.5)", Tokyo,etat[1] ); 
+    Menu(choix3, 3, "rgba(0, 255, 255, 0.5)", Paris,etat[2] ); 
     // retirer la planète si elle gène trop
     let compteur = 0
     window.addEventListener("contextmenu", e =>{
@@ -118,9 +144,6 @@ window.addEventListener("load", async () => {
         if(compteur > 3)
             document.querySelector("model-viewer").style.display = "none"
     })
-
-
-    
     Generaltick();
 })
 

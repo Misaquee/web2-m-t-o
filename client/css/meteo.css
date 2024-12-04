@@ -19,6 +19,7 @@ body{
 
 
 .choix1{
+    
     display: flex;
     justify-content: space-evenly;
     position:absolute;
@@ -67,9 +68,13 @@ model-viewer{
 }
 
 .quitter{
-    position: relative;
-    top: 50%;
-    left: 85%;
+    display: none;  
+    position: absolute; 
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    z-index: 100; 
+    font-size: 16px;
 }
 
 .homme{
@@ -110,17 +115,19 @@ model-viewer{
     position: absolute;
     width: 2px;
     height: 10px;
-    background-color: rgba(0, 0, 255, 0.7); /* Couleur bleue transparente */
-    animation: fall linear infinite;
+    background-color: rgba(0, 0, 255, 0.7); 
+    filter: drop-shadow(0 0 10px blue)
+    
 }
 
 .neige {
     position: absolute;
     width: 5px;
     height: 5px;
-    background-color: white; /* Couleur blanche */
+    background-color: white; 
     border-radius: 50%;
-    animation: fall-slow linear infinite;
+    filter: drop-shadow(0 0 10px white)
+   
 }
 
 

@@ -1,5 +1,6 @@
 import { windowWidth } from "../page-meteo"
 import { windowHeight } from "../page-meteo"
+import $ from 'jquery';
 
 
 export default class Alien{
@@ -100,9 +101,21 @@ export default class Alien{
         ) {
             console.log("Collision detected!");
             this.collision = true
+            if (!this.freeze) {
+                this.freeze = true;
+
+                // Désactive le déplacement de l'homme
+               
+                $(this.man).draggable("disable")
+
+                setTimeout(() => {
+                    // Réactive le déplacement après 3 secondes
+                    $(this.man).draggable("enable")
+                    this.freeze = false
+                }, 3000) // 3 secondes
+            }
         }
     }
-
 
     tick(){
         this.verifCollision()

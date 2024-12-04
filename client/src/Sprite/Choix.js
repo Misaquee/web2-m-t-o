@@ -11,9 +11,11 @@ export default class Choix{
         this.velocity2 = 1
         this.velocity3 = 1
 
-        this.rand1 = 5;
-        this.rand2 = 5;
-        this.rand3 = 5;
+        this.rand1 = 10;
+        this.rand2 = 11;
+        this.rand3 = 12;
+
+        this.valide = true
 
 
         this.style1 = getComputedStyle(this.Node1)
@@ -31,20 +33,23 @@ export default class Choix{
     }
 
     tick(){ 
-        if(this.rand1 == 5){
+        if(this.rand1 == 10 ){
             this.x1 += this.velocity1 
-            this.y1 -= this.velocity1
+            this.y1 += this.velocity1
         }
 
-        if(this.rand2 == 5){
-            this.x2 += this.velocity2
-            this.y2 += this.velocity2
-        }
+        
 
-        if(this.rand3 == 5){
+        if(this.rand3 == 12){
             this.y3 += this.velocity3
         }
 
+
+
+        if(this.rand2 == 11 ){
+            this.x2 += this.velocity2
+            this.y2 -= this.velocity2
+        }
         //Node1
         // ----------------------------------------------------------------------------
        
