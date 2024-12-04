@@ -20,7 +20,7 @@ let nombre = 0
 let spriteList = [];
 let bonhomme = document.createElement("div")
 
-const getColor = () => {
+const getColor = () => { // genere des couleurs aléatoire
     let letters = "0123456789ABCDEF";
     let color = "#";
     for (let i = 0; i < 6; i++) {
@@ -37,15 +37,15 @@ window.addEventListener("load", async () => {
     let weatherData = await fetchData(45.5019, 73.5674);
     console.log(weatherData)
 
-    let Montreal = await fetchData(45.508888, -73.561668)
-
+    //let Montreal = await fetchData(45.508888, -73.561668)
+    // avoir la météo de NewYork Paris Tokyo
     let NewYork = await fetchData(40.730610,  -73.935242)
     let Paris = await fetchData(48.864716, 2.349014)
     let Tokyo = await fetchData(35.652832, 139.839478)
 
 
     let body = document.body
-
+    //rajoute bonhomme dans le body
     bonhomme.classList.add("homme")
     body.append(bonhomme)
 
@@ -59,6 +59,7 @@ window.addEventListener("load", async () => {
 
      // Quand une touche est relâchée
     window.addEventListener("keyup", e => {
+        //Savoir si on appuie sur Arrowup
         if(e.key == "ArrowUp" && nombre < 5 && actif){
             actif = false
             nombre++
@@ -66,9 +67,9 @@ window.addEventListener("load", async () => {
             spriteList.push(new Alien())
             setTimeout(() =>{
                 actif = true
-            },3000)
+            },2500)
         }
-
+        // Savoir si space est maintenue enfoncé pendant 5 secondes
         if (e.key == " " && hold) {
             hold = false;
             clearTimeout(timer); 
@@ -76,6 +77,7 @@ window.addEventListener("load", async () => {
             console.log("Espace relâchée ");
         }
 
+        // faire apparaitre et disparaitre quitter
         if (e.key == "q" || e.key == "Q") {
             console.log("yo")
             if (!node) {
@@ -101,14 +103,13 @@ window.addEventListener("load", async () => {
         }
     })
 
-    window.addEventListener("keydown", e => { // savoir si on appui sur la touche space  
+    window.addEventListener("keydown", e => { // savoir si on maintient enfoncé  la touche space  
         if (e.key == " " && !hold) { 
             console.log("appuie")
             hold = true;
             timer = setTimeout(() => {
                 console.log("bravo")
                 body.style.animation = "shake 10s linear 0s 1 normal forwards running";
-               
             }, 3000); // 3 secondes
         }
     });
@@ -127,9 +128,10 @@ window.addEventListener("load", async () => {
     const compteurChoix = (id) => {
         let nbClick = parseInt(localStorage.getItem(id)) || 0; // recupere le nbClick dans le local storage pour cette element
         nbClick++;
-        localStorage.setItem(id, nbClick); // Mettre à jour le compteur dans le localStorage
+        localStorage.setItem(id, nbClick); // Mettre à jour le compteur 
     };
 
+    // 
     const Menu = (choix, index, color, ville,etat ) => {
         choix.addEventListener("contextmenu", (e) => {
             etat = !etat;
@@ -138,10 +140,11 @@ window.addEventListener("load", async () => {
     
             if (etat) {
                 for(let i = 0; i < 25; i++)
-                    spriteList.push(new Meteo(index, ville))
+                    spriteList.push(new Meteo(index, ville)) // envoie le choix et la météo de la ville
 
                 compteurChoix(choix.classList[0]) // regarde la premiere classe du choix 
 
+                //modifie l'apparence du choix
                 choix.style.width = "18vw"
                 choix.style.height = "18vh"
                 choix.style.backgroundSize = "0px"
@@ -153,6 +156,7 @@ window.addEventListener("load", async () => {
                 temp.innerHTML = ville.temperature + "°C"
 
             } else {
+                //retablie certaines caractéristiques et en modifie certaines
                 choix.style.width = "7vw"
                 choix.style.height = "7vh"
                 choix.style.backgroundSize = "cover"

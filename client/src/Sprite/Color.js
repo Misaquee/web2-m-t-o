@@ -13,14 +13,15 @@ export default class Color{
         this.border.style.color = this.color
     }
 
-     getColor(){
+    // choisi une couleur aléatoie en hexadecimal
+    getColor(){
         let letters = "0123456789ABCDEF";
         let color = "#";
         for (let i = 0; i < 6; i++) {
             color += letters[Math.floor(Math.random() * 16)];
         }
         return color;
-    };
+    }
 
     tick(){
         this.opacity += 0.4

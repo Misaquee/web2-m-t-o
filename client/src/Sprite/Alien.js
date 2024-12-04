@@ -28,7 +28,7 @@ export default class Alien{
        
         this.velocity = 5
         this.velocityP = 8
-        this.y = Math.floor(Math.random () * windowHeight)
+        this.y = Math.floor(Math.random () * windowHeight) // faire apparaitre aléatoirement sur l'axe des y
         
         if(this.y == 0 || this.y < this.node.offsetTop) // vérifie si l'alien depasse le cadre
             this.y += this.node.offsetTop
@@ -36,7 +36,7 @@ export default class Alien{
         if(this.y == windowHeight || this.y > windowHeight - this.node.offsetTop)
             this.y -=  this.node.offsetTop
 
-        if(Math.random() < 0.5){
+        if(Math.random() < 0.5){ //les faie apparaitre soient a droite ou a gauche
             this.node.style.left = 0 + this.node.offsetLeft + "px"
             this.node.style.top = this.y + "px"
             this.side = false
@@ -57,7 +57,7 @@ export default class Alien{
         console.log(parseInt(this.proj.style.left))
     }
 
-    tire(){
+    tire(){ // les faires tirer un projectile apres 2.5 sec
         setTimeout(() => {
             // Calcule la position verticale (y)
             this.posY = this.node.offsetHeight / 2 + this.node.getBoundingClientRect().top;
@@ -78,6 +78,7 @@ export default class Alien{
         }, 2500)
     }
 
+    // immobiliser le projectile et le modifier
     wait(){
             setTimeout(()=>{
                 this.node.remove()
@@ -90,6 +91,7 @@ export default class Alien{
             },6000)
     }
 
+    // verifie les collisions 
     verifCollision() {
         const projectile = this.proj.getBoundingClientRect()
         const homme = this.man.getBoundingClientRect()
@@ -120,6 +122,7 @@ export default class Alien{
         }
     }
 
+    // verifie si un projectile depasse les limites de l'écran
     limite() {
         if (
             this.projx < 0 ||

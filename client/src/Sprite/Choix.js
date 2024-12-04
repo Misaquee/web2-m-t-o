@@ -17,7 +17,7 @@ export default class Choix{
 
         this.valide = true
 
-
+        // avoir les positions et tailles en css 
         this.style1 = getComputedStyle(this.Node1)
         this.x1 = parseInt(this.style1.left)
         this.y1 = parseInt(this.style1.top)
@@ -33,18 +33,15 @@ export default class Choix{
     }
 
     tick(){ 
+        //pour pas que ces deplacements gène plus tard
         if(this.rand1 == 10 ){
             this.x1 += this.velocity1 
             this.y1 += this.velocity1
         }
 
-        
-
         if(this.rand3 == 12){
             this.y3 += this.velocity3
         }
-
-
 
         if(this.rand2 == 11 ){
             this.x2 += this.velocity2

@@ -63,6 +63,7 @@ il nous suivent sur l'axe des y
 projectiles des aliens:
 les aliens tirent des projectiles apres un certain temps et les projectiles foncent tous droit sur l'axe des x, puis se retournent, foncent à nouveau et nous chassent sur l'axe des y
 
-
+quitter:
+appuyer sur q fait apparaitre et disparaitre quitter
 
   

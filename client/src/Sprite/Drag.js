@@ -4,6 +4,7 @@ export default class Drag{
         this.posActuel = parseInt(this.Node.style.left); 
         this.previousPos = this.posActuel; 
 
+        // verifi la position de l'homme a chaque 50 milisec
         setInterval(() => {
             this.posActuel = parseInt(this.Node.style.left)
         }, 50); 
