@@ -3,6 +3,7 @@ html{
 }
 
 body{ 
+    object-fit: cover ;
     position: relative;
     background-image: url('../img/thirdUnivers.png');
     background-repeat:no-repeat;
