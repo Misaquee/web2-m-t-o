@@ -11,14 +11,27 @@ export let windowWidth = window.innerWidth;
 export let windowHeight = window.innerHeight;
 
 let timer
-let hold = false
+let hold = false 
 let actif = true
+let visible = false;
+
+let node = null;
 let nombre = 0
 let spriteList = [];
 let bonhomme = document.createElement("div")
 
+const getColor = () => {
+    let letters = "0123456789ABCDEF";
+    let color = "#";
+    for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+};
 
 window.addEventListener("load", async () => {
+    
+
     localStorage.clear();  // videz le localStorage
 
     let weatherData = await fetchData(45.5019, 73.5674);
@@ -64,7 +77,27 @@ window.addEventListener("load", async () => {
         }
 
         if (e.key == "q" || e.key == "Q") {
-
+            console.log("yo")
+            if (!node) {
+                node = document.createElement("a")
+                node.classList.add("quitter")
+                node.href = "index.html"
+                node.innerHTML = "Quitter"
+    
+                body.append(node)
+            }
+            if (visible) {
+                node.style.display = "none"
+            } else {
+                // Afficher et placer à une position aléatoire
+                node.style.display = "flex"
+                node.style.justifyContent = "center"
+                node.style.alignItems = "center"
+                node.style.left = Math.floor(Math.random() * (window.innerWidth - 100)) + "px"
+                node.style.top = Math.floor(Math.random() * (window.innerHeight - 50)) + "px"
+                node.style.color = getColor()
+            }
+            visible = !visible
         }
     })
 

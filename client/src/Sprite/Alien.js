@@ -108,12 +108,28 @@ export default class Alien{
                
                 $(this.man).draggable("disable")
 
+
                 setTimeout(() => {
                     // Réactive le déplacement après 3 secondes
                     $(this.man).draggable("enable")
-                    this.freeze = false
+                    
                 }, 3000) // 3 secondes
+                this.freeze = false
+                this.proj.remove();
             }
+        }
+    }
+
+    limite() {
+        if (
+            this.projx < 0 ||
+            this.projx > windowWidth ||
+            this.posY < 0 ||
+            this.posY > windowHeight
+        ) {
+            
+            this.proj.remove();
+            this.feu = false;
         }
     }
 
@@ -150,11 +166,7 @@ export default class Alien{
         this.proj.style.left = this.projx + "px"
         this.proj.style.top = this.posY + "px"
        
-
-        if (this.y > 1000 ){
-            
-        }
-       
+        this.limite
     }
 
     

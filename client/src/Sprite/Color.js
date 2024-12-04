@@ -3,32 +3,28 @@ export default class Color{
     
         this.node = document.querySelector(".bonjour")
         this.border = document.querySelector("input")
-        this.opacity = 70
+        this.opacity = 30
         this.chance = Math.random() 
 
 
         // designe la couleur de message et de l'input
-         if(id == 1){
-            this.node.style.color = "rgba(255, 0, 0, 1)"
-            this.color= "rgba(255, 0, 0, 1)"
-        }
-        if(id == 2){
-            this.node.style.color = "rgba(0, 0, 255, 1)"
-            this.color =  "rgba(0, 0, 255, 1)"
-        }
-        if(id == 3){
-            this.node.style.color = "rgba(0, 255, 0, 1)"
-            this.color = "rgba(0, 255, 0, 1)"
-        }
-        if(id == 4){
-            this.node.style.color = "rgba(255, 255, 0, 1)"
-            this.color = "rgba(255, 255, 0, 1)"
-        }
+        this.color = this.getColor();
+        this.node.style.color = this.color;
+        this.border.style.color = this.color
     }
+
+     getColor(){
+        let letters = "0123456789ABCDEF";
+        let color = "#";
+        for (let i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    };
 
     tick(){
         this.opacity += 0.4
-        this.border.style.boxShadow =  this.color + " 0px 0px " + this.opacity + "px 5px" ;
+        this.border.style.boxShadow = this.color + " 0px 0px " + this.opacity + "px 5px";
         
     }
 }
