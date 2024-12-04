@@ -153,7 +153,16 @@ window.addEventListener("load", async () => {
                 let temp = document.createElement("div")
                 temp.classList.add("temp")
                 choix.append(temp)
-                temp.innerHTML = ville.temperature + "°C"
+                if(ville.temperature > 20 )
+                    temp.innerHTML =  ville.windSpeed10m + " km/H     " + ville.temperature + "°C       🔥"
+                if(ville.temperature < 20 && ville.temperature > 9)
+                    temp.innerHTML =  ville.windSpeed10m + " km/H     " + ville.temperature + "°C       😎"
+                if(ville.temperature < 9 && ville.temperature > 0)
+                    temp.innerHTML =  ville.windSpeed10m + " km/H     " + ville.temperature + "°C       😓"
+                if(ville.temperature < 0)
+                    temp.innerHTML =  ville.windSpeed10m + " km/H     " + ville.temperature + "°C       ❄️"
+
+
 
             } else {
                 //retablie certaines caractéristiques et en modifie certaines

@@ -7,6 +7,7 @@ export let windowHeight = window.innerHeight;
 let indice = 0
 let spriteList = []
 let valide 
+
 // les phrases différentes qui peuvent apparaitre
 let text = [5];
  text [0] = "tu es un sorcier Harry" // Harry poter
@@ -56,6 +57,7 @@ let text = [5];
             success = false;
             document.querySelector("#error-message").style.display = "none";
             alert("mot de passe erroné : Erreur d'authentification")
+            alerte++
         }
         return success;
     };
