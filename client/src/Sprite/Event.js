@@ -7,18 +7,18 @@ export default class Event{
         this.parent = document.querySelector("body")
         this.y = Math.floor(Math.random () * windowHeight)
       
-        let columnCount = 8
+        let columnCount = 5
 		let rowCount = 1
 		let refreshDelay = 100
 		let loopColumns = true
 		let scale = 1.0
 
         let node = document.createElement("div")
-        node.style.backgroundColor = "transparent"
+        
 		document.querySelector("body").append(node)
 
         this.tiledImage = new TiledImage(
-            "./imgSprite/SpriteMario.png",
+            "./img/as.png",
             columnCount, 
             rowCount, 
             refreshDelay, 
@@ -31,12 +31,12 @@ export default class Event{
         this.x = windowWidth;
         this.valide = true;
         this.tiledImage.changeRow(0)
-        this.tiledImage.changeMinMaxInterval(4, 7); // Frames pour aller à gauche
+        this.tiledImage.changeMinMaxInterval(1,4); // Frames pour aller à gauche
         } else if (id == 0) {
         this.x = 0;
         this.valide = false;
         this.tiledImage.changeRow(0)
-        this.tiledImage.changeMinMaxInterval(0, 3); // Frames pour aller à droite
+        this.tiledImage.changeMinMaxInterval(0, 4); // Frames pour aller à droite
         }
           
     }

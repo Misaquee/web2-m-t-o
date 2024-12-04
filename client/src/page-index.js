@@ -53,7 +53,7 @@ let text = [5];
 
     // Animation liée au fichier Event.js
     setInterval(() => {
-        if (Math.random() <= 0.10) {
+        if (Math.random() <= 0.99) {
             spriteList.push(new Event(Math.floor(Math.random() * 2)));
         }
     }, 3000);

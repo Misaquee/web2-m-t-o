@@ -13,11 +13,20 @@ export default class Alien{
         this.node.classList.add("alien")
         this.proj.classList.add("projectile")
 
+        this.posX = 0
+        this.posY = 0
+        this.projx = 0
+
+
+        this.return = false
         this.feu = false
-        this.projX = 0
         this.side = false
-        this.velocity = 2
-        this.velocityP = 5
+        this.track = false
+        this.collision = false
+
+
+        this.velocity = 5
+        this.velocityP = 8
         this.y = Math.floor(Math.random () * windowHeight)
         
         if(this.y == 0 || this.y < this.node.offsetTop) // vérifie si l'alien depasse le cadre
@@ -39,57 +48,99 @@ export default class Alien{
 
         //this.node.getBoundingClientRect().left
         this.parent.append(this.node)
-        this.style = getComputedStyle(this.node)
+       
         this.tire()
+        this.wait()
+        this.verifCollision()
+        
+        console.log(parseInt(this.proj.style.left))
     }
 
     tire(){
         setTimeout(() => {
-            let posX = 0
-            let posY = 0
-            
-            if(this.side){
-                posY += this.node.offsetHeight / 2 + parseInt(this.style.top) 
-                posX += parseInt(this.style.left) 
-                console.log(posX)
-                
-                this.proj.style.left = posX + "px"
-                this.proj.style.top = posY + "px"
+            // Calcule la position verticale (y)
+            this.posY = this.node.offsetHeight / 2 + this.node.getBoundingClientRect().top;
+
+            // Calcule la position horizontale (x)
+            if (this.side){
+                this.posX = this.node.getBoundingClientRect().right - this.node.offsetWidth ;
+                this.velocityP *= -1
             }
-            else{
-                posX += this.node.offsetWidth 
-                posY += this.node.offsetHeight / 2 + parseInt(this.style.top)
-                this.proj.style.left = posX + "px"
-                this.proj.style.top = posY + "px"
+            else {
+                this.posX = this.node.getBoundingClientRect().left + this.node.offsetWidth / 2 ;
             }
-            console.log(this.style.top)
-            console.log(parseInt(this.proj.style.left))
-            this.parent.append(this.proj)
-            this.feu = true
+            this.projx = this.posX;   
+            this.proj.style.left = this.posX + "px";
+            this.proj.style.top = this.posY + "px";
+            this.parent.append(this.proj); 
+            this.feu = true;
         }, 2500)
-        
     }
 
+    wait(){
+            setTimeout(()=>{
+                this.node.remove()
+                console.log("yo")
+                this.velocityP = 0
+                this.proj.style.backgroundColor = "red"
+                this.proj.style.filter = " drop-shadow(0 0 10px red)"
+                this.proj.style.width = "4vw"
+                this.return = true
+            },6000)
+    }
+
+    verifCollision() {
+        const projectile = this.proj.getBoundingClientRect();
+        const homme = this.man.getBoundingClientRect();
+        
+
+        if (
+            projectile.left < homme.right &&
+            projectile.right > homme.left &&
+            projectile.top < homme.bottom &&
+            projectile.bottom > homme.top
+        ) {
+            console.log("Collision detected!");
+            this.collision = true
+        }
+    }
+
+
     tick(){
+        
+        if (this.return) {
+            if(this.side)
+                this.velocityP = 13.5
+            else
+                this.velocityP = -13.5
+            this.return = false
+            this.track = true
+        }
+        
         if(this.feu)
-            this.projX += this.velocityP
+           this.projx += this.velocityP
 
-        if( this.y < parseInt(this.man.style.top)){
+        // pour que l'alien suive l'homme
+        if( this.y < parseInt(this.man.style.top))
             this.y += this.velocity
-        }
-
-        if( this.y > parseInt(this.man.style.top)){
+        if( this.y > parseInt(this.man.style.top))
             this.y -= this.velocity
+        
+        // pour que le projectile suive l'homme
+        if(this.track){
+            if( this.posY < parseInt(this.man.style.top))
+                this.posY += Math.abs(this.velocityP)
+            if( this.posY > parseInt(this.man.style.top))
+                this.posY -= Math.abs(this.velocityP)
         }
 
-        this.proj.style.left = this.projX + "px"
-       
         this.node.style.top = this.y + "px"
-
+        this.proj.style.left = this.projx + "px"
+        this.proj.style.top = this.posY + "px"
        
 
         if (this.y > 1000 ){
-            this.node.remove()
+            
         }
        
     }

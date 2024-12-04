@@ -1,3 +1,6 @@
+html{
+    position: relative;
+}
 
 body{ 
     position: relative;
@@ -6,7 +9,8 @@ body{
     background-size: cover;
     width: 100vw;
     height: 100vh;
-    
+    overflow: hidden;
+   
 }
 
 .en-tete{
@@ -88,8 +92,8 @@ model-viewer{
 }
 
 .projectile{
-    width: 1.5vw;
-    height: 0.5vw;
+    width: 2vw;
+    height: 0.3vw;
     background-color: blue;
     position: absolute;
     border-radius: 10px;

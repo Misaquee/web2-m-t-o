@@ -21,7 +21,7 @@ window.addEventListener("load", async () => {
     console.log(weatherData)
 
     let body = document.body
-
+    
     bonhomme.classList.add("homme")
     body.append(bonhomme)
 
@@ -63,6 +63,7 @@ window.addEventListener("load", async () => {
             timer = setTimeout(() => {
                 console.log("bravo")
                 body.style.animation = "shake 10s linear 0s 1 normal forwards running";
+               
             }, 3000); // 3 secondes
         }
     });
