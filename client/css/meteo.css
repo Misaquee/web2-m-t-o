@@ -13,6 +13,22 @@ body{
     overflow: hidden;
 }
 
+
+
+button{
+    margin-left: 60px;
+    width: 100px;
+}
+
+.defile{
+    margin-left: 20px;
+    top: -80px;
+    width: 175px;
+    height: 80px;
+    background-color: silver;
+    position: absolute;
+}
+
 .en-tete{
     display: flex;
     justify-content: center;
@@ -20,7 +36,6 @@ body{
 
 
 .choix1{
-    
     display: flex;
     justify-content: space-evenly;
     position:absolute;
@@ -123,7 +138,6 @@ model-viewer{
     height: 10px;
     background-color: rgba(0, 0, 255, 0.7); 
     filter: drop-shadow(0 0 10px blue)
-    
 }
 
 .neige {
@@ -135,6 +149,8 @@ model-viewer{
     filter: drop-shadow(0 0 10px white)
    
 }
+
+
 
 
 /*animation tirée d'un site*/

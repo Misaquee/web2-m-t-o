@@ -3,6 +3,7 @@ import Drag from "./Sprite/Drag.js";
 import Choix from "./Sprite/Choix.js";
 import Alien from "./Sprite/Alien.js";
 import Meteo from "./Sprite/Meteo.js";
+import Defilant from "./Sprite/Defilant.js";
 
 import $ from 'jquery';
 import 'jquery-ui/ui/widgets/draggable';
@@ -162,8 +163,6 @@ window.addEventListener("load", async () => {
                 if(ville.temperature < 0)
                     temp.innerHTML =  ville.windSpeed10m + " km/H     " + ville.temperature + "°C       ❄️"
 
-
-
             } else {
                 //retablie certaines caractéristiques et en modifie certaines
                 choix.style.width = "7vw"
@@ -183,6 +182,7 @@ window.addEventListener("load", async () => {
     Menu(choix1, 1, "rgba(255, 0, 255, 0.5)", NewYork,etat[0] ); 
     Menu(choix2, 2, "rgba(127, 255, 0, 0.5)", Tokyo,etat[1] ); 
     Menu(choix3, 3, "rgba(0, 255, 255, 0.5)", Paris,etat[2] ); 
+
     // retirer la planète si elle gène trop
     let compteur = 0
     window.addEventListener("contextmenu", e =>{
@@ -190,7 +190,20 @@ window.addEventListener("load", async () => {
         if(compteur > 3)
             document.querySelector("model-viewer").style.display = "none"
     })
+  
+
+    // faire apparaitre le menu
+    let menu = document.querySelector("button")
+    let menuChoix = 1
+    menu.addEventListener("click", () => {
+
+        spriteList.push(new Defilant(menuChoix))
+        menuChoix *= -1
+        
+    })
+
     Generaltick();
+
 })
 
 const Generaltick = () => {
