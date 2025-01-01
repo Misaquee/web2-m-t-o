@@ -10,6 +10,7 @@ import 'jquery-ui/ui/widgets/draggable';
 
 export let windowWidth = window.innerWidth;
 export let windowHeight = window.innerHeight;
+export let top;
 
 let timer
 let hold = false 
@@ -21,7 +22,9 @@ let nombre = 0
 let spriteList = [];
 let bonhomme = document.createElement("div")
 
-const getColor = () => { // genere des couleurs aléatoire
+
+// genere des couleurs aléatoire
+const getColor = () => { 
     let letters = "0123456789ABCDEF";
     let color = "#";
     for (let i = 0; i < 6; i++) {
@@ -31,7 +34,7 @@ const getColor = () => { // genere des couleurs aléatoire
 };
 
 window.addEventListener("load", async () => {
-    
+    top = document.querySelector(".defile").getBoundingClientRect().y;
 
     localStorage.clear();  // videz le localStorage
 
@@ -192,16 +195,38 @@ window.addEventListener("load", async () => {
     })
   
 
-    // faire apparaitre le menu
-    let menu = document.querySelector("button")
+    
+    let menu = document.querySelector("#menu")
+    let retrct = document.querySelector("#retract")
+    let clear = document.querySelector("#clear")
+    let reset = document.querySelector("#reset")
+   
     let menuChoix = 1
-    menu.addEventListener("click", () => {
 
+    // faire descendre le menu
+    menu.addEventListener("click", () => {
         spriteList.push(new Defilant(menuChoix))
         menuChoix *= -1
-        
+    })
+    // faire remonter le menu
+    retrct.addEventListener("click", () => {
+        spriteList.push(new Defilant(menuChoix))
+        menuChoix *= -1
     })
 
+    // faire disparaitre tous les éléments
+    clear.addEventListener("click", () => {
+        choix1.style.display = "none"
+        choix2.style.display = "none"
+        choix3.style.display = "none"
+    })
+
+    reset.addEventListener("click", () => {
+        choix1.style.display = "flex"
+        choix2.style.display = "flex"
+        choix3.style.display = "flex"
+    })
+    
     Generaltick();
 
 })
