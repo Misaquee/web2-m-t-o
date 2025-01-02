@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="css/global.css">
         <link rel="stylesheet" href="css/meteo.css">
         <script src="dist/meteo.js"></script>
+        <script src="dist/mode1.js"></script>
 
         <!-- permet d'importer des objets 3d-->
         <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
@@ -33,11 +34,11 @@
             menu
         </button>
     
-        <div class="defile">
-            <button>siuuuuuu</button>
+        <div class="defile" id="defile">
             <button id="clear">clear</button>
             <button id="reset">reset</button>
             <button id="retract">retract</button>
+            <button id="change">changeMode</button>
         </div>
         
         <model-viewer src="./objet3d/earth3/scene.gltf" alt="VR Headset" auto-rotate camera-controls style="background-color: transparent;"></model-viewer>

@@ -4,6 +4,7 @@ import Choix from "./Sprite/Choix.js";
 import Alien from "./Sprite/Alien.js";
 import Meteo from "./Sprite/Meteo.js";
 import Defilant from "./Sprite/Defilant.js";
+import defileMode from "./Sprite/DefileMode.js";
 
 import $ from 'jquery';
 import 'jquery-ui/ui/widgets/draggable';
@@ -190,8 +191,10 @@ window.addEventListener("load", async () => {
     let compteur = 0
     window.addEventListener("contextmenu", e =>{
         compteur++
-        if(compteur > 3)
+        if(compteur > 3){
             document.querySelector("model-viewer").style.display = "none"
+            compteur = 0
+        }
     })
   
 
@@ -200,8 +203,10 @@ window.addEventListener("load", async () => {
     let retrct = document.querySelector("#retract")
     let clear = document.querySelector("#clear")
     let reset = document.querySelector("#reset")
+    let changerMode = document.querySelector("#change")
    
     let menuChoix = 1
+    let menuChoix2 = 1
 
     // faire descendre le menu
     menu.addEventListener("click", () => {
@@ -219,13 +224,37 @@ window.addEventListener("load", async () => {
         choix1.style.display = "none"
         choix2.style.display = "none"
         choix3.style.display = "none"
+        bonhomme.style.display = "none"
+        document.querySelector("model-viewer").style.display = "none"
     })
 
     reset.addEventListener("click", () => {
         choix1.style.display = "flex"
         choix2.style.display = "flex"
         choix3.style.display = "flex"
+        bonhomme.style.display = "block"
+          document.querySelector("model-viewer").style.display = "block"
     })
+
+    // la bande defilante
+    let nodeDefile = document.createElement("div")
+
+    // changer les propriétés css
+    nodeDefile.style.marginLeft = 0 + "px"
+    nodeDefile.style.right = "100%"
+
+    // les boutons permettant de changer de mode
+    let button1 = document.createElement("button")
+    let button2 = document.createElement("button")
+    let button3 = document.createElement("button")
+
+
+    changerMode.addEventListener("click", () => {
+        console.log("here")
+    })
+
+
+
     
     Generaltick();
 

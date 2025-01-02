@@ -1,10 +1,9 @@
 import { top } from "../page-meteo"
 export default class Defilant{
     constructor(id){
-        this.node = document.querySelector(".defile")
+        this.node = document.querySelector("#defile")
         this.y = parseInt(this.node.getBoundingClientRect().y)
         this.velocity = id
-        this.buttom = parseInt(this.node.getBoundingClientRect().top)
     }
 
     tick(){
@@ -16,7 +15,7 @@ export default class Defilant{
         if(this.y < parseInt(top))
             this.velocity = 0
 
-        console.log(this.buttom)
+       
 
     }
 }

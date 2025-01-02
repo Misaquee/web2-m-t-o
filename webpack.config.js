@@ -6,7 +6,8 @@ module.exports = {
     entry : {
 		index : './client/src/page-index.js',
 		meteo : './client/src/page-meteo.js',
-    // FirstScreen: './client/src/page-meteo.js',
+    mode1 : './client/src/page-mode1.js'
+    
     },
     mode : 'development',
     output : {
