@@ -4,7 +4,7 @@ import Choix from "./Sprite/Choix.js";
 import Alien from "./Sprite/Alien.js";
 import Meteo from "./Sprite/Meteo.js";
 import Defilant from "./Sprite/Defilant.js";
-import defileMode from "./Sprite/DefileMode.js";
+
 
 import $ from 'jquery';
 import 'jquery-ui/ui/widgets/draggable';
@@ -141,7 +141,7 @@ window.addEventListener("load", async () => {
         choix.addEventListener("contextmenu", (e) => {
             etat = !etat;
             console.log(etat);
-            e.preventDefault();
+            e.preventDefault(); // empeche le click droit de creer une fenetre
     
             if (etat) {
                 for(let i = 0; i < 25; i++)
@@ -197,8 +197,6 @@ window.addEventListener("load", async () => {
         }
     })
   
-
-    
     let menu = document.querySelector("#menu")
     let retrct = document.querySelector("#retract")
     let clear = document.querySelector("#clear")
@@ -248,13 +246,11 @@ window.addEventListener("load", async () => {
     let button2 = document.createElement("button")
     let button3 = document.createElement("button")
 
-
+ 
+    // effet de paralaxe 
     changerMode.addEventListener("click", () => {
         console.log("here")
     })
-
-
-
     
     Generaltick();
 
