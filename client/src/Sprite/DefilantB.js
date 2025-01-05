@@ -3,19 +3,21 @@ import { top } from "../page-meteo"
 
 export default class DefilantB{
     constructor(id){
-        this.node = nodeDefile
-        this.y = parseInt(this.node.getBoundingClientRect().y)
+        
+        this.y = parseInt(nodeDefile.getBoundingClientRect().y)
         this.velocity = id
+        console.log(id)
+        console.log(nodeDefile.offsetWidth)
     }
 
     tick(){
         this.y += this.velocity
-                this.node.style.top = this.y + "px"
+        nodeDefile.style.top = this.y + "px"
         
-                if(this.y > 0)
-                    this.velocity = 0
-                if(this.y < parseInt(top))
-                    this.velocity = 0
+        if(this.y > 0)
+            this.velocity = 0
+        if(this.y < parseInt(top))
+            this.velocity = 0
         
     }
 }

@@ -14,8 +14,7 @@ export let windowWidth = window.innerWidth;
 export let windowHeight = window.innerHeight;
 export let top;
 export let nodeDefile;
-export let button1;
-export let button2;
+
 
 let timer
 let hold = false 
@@ -44,14 +43,12 @@ window.addEventListener("load", async () => {
     localStorage.clear();  // videz le localStorage
 
     let weatherData = await fetchData(45.5019, 73.5674);
-    console.log(weatherData)
-
+    
     //let Montreal = await fetchData(45.508888, -73.561668)
     // avoir la météo de NewYork Paris Tokyo
     let NewYork = await fetchData(40.730610,  -73.935242)
     let Paris = await fetchData(48.864716, 2.349014)
     let Tokyo = await fetchData(35.652832, 139.839478)
-
 
     let body = document.body
     //rajoute bonhomme dans le body
@@ -207,8 +204,8 @@ window.addEventListener("load", async () => {
     let reset = document.querySelector("#reset")
     let changerMode = document.querySelector("#change")
    
-    let menuChoix = 1
-    let menuChoix2 = 1
+    let menuChoix = 2.5
+    let menuChoix2 = 2.5
 
     // faire descendre le menu
     menu.addEventListener("click", () => {
@@ -242,24 +239,32 @@ window.addEventListener("load", async () => {
     nodeDefile = document.createElement("div")
     nodeDefile.classList.add("defile")
 
+    body.append(nodeDefile)
+    
+
+
     // changer les propriétés css
-    nodeDefile.style.marginLeft = 0 + "px"
-    nodeDefile.style.right = "100%"
+    nodeDefile.style.backgroundColor = "rgba(0, 0, 0, 0.5)"
+    nodeDefile.style.left = (windowWidth - nodeDefile.offsetWidth - 100) + "px"
 
     // les boutons permettant de changer de mode
-    button1 = document.createElement("button")
-    button1.classList.add("button")
-    button2 = document.createElement("button")
-    button2.classList.add("button")
-
-
+    
+    // changer de page 
+    let lk = document.createElement("a") 
+    lk.style.color = "blue"
+    lk.href = "parallax.html"
+    lk.innerHTML = "Mode Parallax"
+    nodeDefile.append(lk)
    
-    // effet de paralaxe 
+
+    // Mode effet de parallax
     changerMode.addEventListener("click", () => {
         console.log("here")
         spriteList.push(new DefilantB(menuChoix2))
         menuChoix2 *= -1
     })
+
+ 
     
     Generaltick();
 
