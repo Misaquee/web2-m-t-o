@@ -4,14 +4,18 @@ import Choix from "./Sprite/Choix.js";
 import Alien from "./Sprite/Alien.js";
 import Meteo from "./Sprite/Meteo.js";
 import Defilant from "./Sprite/Defilant.js";
+import DefilantB from "./Sprite/DefilantB.js";
 
 
 import $ from 'jquery';
 import 'jquery-ui/ui/widgets/draggable';
-
+// les variables exports 
 export let windowWidth = window.innerWidth;
 export let windowHeight = window.innerHeight;
 export let top;
+export let nodeDefile;
+export let button1;
+export let button2;
 
 let timer
 let hold = false 
@@ -231,25 +235,30 @@ window.addEventListener("load", async () => {
         choix2.style.display = "flex"
         choix3.style.display = "flex"
         bonhomme.style.display = "block"
-          document.querySelector("model-viewer").style.display = "block"
+        document.querySelector("model-viewer").style.display = "block"
     })
 
     // la bande defilante
-    let nodeDefile = document.createElement("div")
+    nodeDefile = document.createElement("div")
+    nodeDefile.classList.add("defile")
 
     // changer les propriétés css
     nodeDefile.style.marginLeft = 0 + "px"
     nodeDefile.style.right = "100%"
 
     // les boutons permettant de changer de mode
-    let button1 = document.createElement("button")
-    let button2 = document.createElement("button")
-    let button3 = document.createElement("button")
+    button1 = document.createElement("button")
+    button1.classList.add("button")
+    button2 = document.createElement("button")
+    button2.classList.add("button")
 
- 
+
+   
     // effet de paralaxe 
     changerMode.addEventListener("click", () => {
         console.log("here")
+        spriteList.push(new DefilantB(menuChoix2))
+        menuChoix2 *= -1
     })
     
     Generaltick();

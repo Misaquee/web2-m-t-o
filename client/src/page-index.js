@@ -19,7 +19,7 @@ let text = [5];
  window.addEventListener("load", () => {
     let hi = document.querySelector("#bonjour");
     let contain = document.querySelector(".container");
-    let bd = document.querySelector("body");
+    let bd = document.body;
 
     hi.onclick = () => { // Change le texte en haut de l'écran
         if (indice < 5) {

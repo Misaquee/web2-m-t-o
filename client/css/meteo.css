@@ -13,8 +13,11 @@ body{
     overflow: hidden;
 }
 
-button{
+.menu{
     margin-left: 60px;
+}
+
+button{
     width: 100px;
 }
 
@@ -28,6 +31,7 @@ button{
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    align-items: center;
 }
 
 .en-tete{

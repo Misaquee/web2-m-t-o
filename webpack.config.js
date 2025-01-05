@@ -5,7 +5,8 @@ const Webpack = require('webpack');
 module.exports = {
     entry : {
 		index : './client/src/page-index.js',
-		meteo : './client/src/page-meteo.js'
+		meteo : './client/src/page-meteo.js',
+    parax : './client/src/page-para.js'
    
     
     },
