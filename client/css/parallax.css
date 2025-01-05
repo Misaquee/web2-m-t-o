@@ -1,0 +1,16 @@
+body{
+    background-image: url('../imgParallax/backGround.png');
+    background-repeat:repeat-x;
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden; 
+    position: relative;
+}
+
+
+.arrierePlan{
+    background-repeat: repeat-x;
+    width: 100vw;
+    height: 100vh;
+}
