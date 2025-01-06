@@ -3,9 +3,8 @@ export default class Arriere{
         this.node = document.querySelector("body")
         console.log(this.node.getBoundingClientRect())
         this.x = 0
-        this.velocity = 2
+        this.velocity = 0.5
     }
-
 
     tick(){
         this.x -= this.velocity
