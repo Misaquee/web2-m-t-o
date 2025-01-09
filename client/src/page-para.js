@@ -1,5 +1,6 @@
-import Arriere from "./Sprite/SpritePara/Arriere";
-import Milieu from "./Sprite/SpritePara/Arriere";
+import Arriere from "./Sprite/SpritePara/Arriere.js";
+import Milieu from "./Sprite/SpritePara/Milieu.js";
+import Man from "./Sprite/SpritePara/Man.js";
 
 
 export let windowWidth = window.innerWidth;
@@ -13,6 +14,7 @@ let spriteList = [];
 window.addEventListener("load", () => {
     spriteList.push(new Arriere())
     spriteList.push(new Milieu())
+    spriteList.push(new Man())
 
     Generaltick();
 })

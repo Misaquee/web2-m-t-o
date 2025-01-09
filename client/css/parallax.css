@@ -9,8 +9,13 @@ body{
 }
 
 
-.arrierePlan{
-    background-repeat: repeat-x;
+.cas{
+    position: absolute;
+    background-image: url('../img/cassette.png');
     width: 100vw;
-    height: 100vh;
+    height: 35vh;
+    background-repeat:repeat-x;
+    overflow: hidden; 
+    top: 65%;
+    opacity: 0.5;
 }
